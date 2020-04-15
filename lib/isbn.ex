@@ -30,6 +30,54 @@ defmodule ISBN do
     reveal_verifier(digits) == last_digit
   end
 
+  @doc """
+  Returns ISBN formatted.
+
+  ## Examples
+
+      iex> ISBN.format("9992158107")
+      "99-9215-810-7"
+
+      iex> ISBN.format("9992158106")
+      nil
+
+  """
+  def format(isbn) when not is_binary(isbn), do: nil
+
+  def format(isbn) do
+    case valid?(isbn) do
+      true ->
+        isbn
+        |> String.trim()
+        |> String.replace("-", "")
+        |> String.replace(" ", "")
+        |> String.codepoints()
+        |> do_format()
+
+      _ ->
+        nil
+    end
+  end
+
+  defp do_format(digits) when length(digits) == 10 do
+    digits
+    |> List.insert_at(2, "-")
+    |> List.insert_at(7, "-")
+    |> List.insert_at(11, "-")
+    |> Enum.join()
+  end
+
+  defp do_format(digits) when length(digits) == 13 do
+    digits
+    |> List.insert_at(3, "-")
+    |> List.insert_at(6, "-")
+    |> List.insert_at(11, "-")
+    |> List.insert_at(15, "-")
+    |> Enum.join()
+  end
+
+  defp do_format(_isbn), do: nil
+
   defp reveal_verifier(digits) when length(digits) == 9 do
     acc = calculate(digits, @isbn10_multipliers)
     rem = rem(acc, 11)
