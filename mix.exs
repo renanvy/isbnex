@@ -3,7 +3,7 @@ defmodule Isbn.MixProject do
 
   def project do
     [
-      app: :isbn,
+      app: :isbnex,
       version: "0.1.0",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
@@ -12,7 +12,8 @@ defmodule Isbn.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       name: "ISBN",
       docs: docs(),
-      deps: deps()
+      deps: deps(),
+      source_url: "https://github.com/renanvy/isbnex"
     ]
   end
 
@@ -33,10 +34,10 @@ defmodule Isbn.MixProject do
 
   defp package do
     [
-      name: "isbn",
+      name: "isbnex",
       maintainers: ["Renan Carneiro Oliveira"],
       licenses: ["MIT"],
-      links: %{"GitHub" => "https://github.com/renanvy/isbn"}
+      links: %{"GitHub" => "https://github.com/renanvy/isbnex"}
     ]
   end
 
@@ -45,7 +46,7 @@ defmodule Isbn.MixProject do
 
   defp docs do
     [
-      source_url: "https://github.com/renan/isbn",
+      source_url: "https://github.com/renan/isbnex",
       extras: ["README.md"]
     ]
   end
