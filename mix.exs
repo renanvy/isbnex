@@ -7,7 +7,12 @@ defmodule Isbn.MixProject do
       version: "0.1.0",
       elixir: "~> 1.6",
       test_coverage: [tool: ExCoveralls],
-      preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.post": :test, "coveralls.html": :test],
+      preferred_cli_env: [
+        coveralls: :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test
+      ],
       start_permanent: Mix.env() == :prod,
       description: "A library to work with ISBN written in Elixir.",
       package: package(),
