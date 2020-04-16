@@ -13,10 +13,6 @@ An ISBN is assigned to each separate edition and variation (except reprintings) 
 This library provides a validation that checks if the ISBN is valid and a formatter.
 The ISBN has check digit algorithm, you can check the details [here](https://en.wikipedia.org/wiki/International_Standard_Book_Number).
 
-## Docs
-
-The docs can be found at [https://hexdocs.pm/isbnex](https://hexdocs.pm/isbnex).
-
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
@@ -67,3 +63,6 @@ iex> ISBN.format("111111")
 nil
 ```
 
+## Docs
+
+The docs can be found at [https://hexdocs.pm/isbnex](https://hexdocs.pm/isbnex).
