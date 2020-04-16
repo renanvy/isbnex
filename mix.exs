@@ -6,6 +6,8 @@ defmodule Isbn.MixProject do
       app: :isbnex,
       version: "0.1.0",
       elixir: "~> 1.6",
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.post": :test, "coveralls.html": :test],
       start_permanent: Mix.env() == :prod,
       description: "A library to work with ISBN written in Elixir.",
       package: package(),
@@ -27,7 +29,8 @@ defmodule Isbn.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:ex_doc, "~> 0.14", only: :dev, runtime: false}
+      {:ex_doc, "~> 0.14", only: :dev, runtime: false},
+      {:excoveralls, "~> 0.10", only: :test}
     ]
   end
 
