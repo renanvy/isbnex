@@ -3,7 +3,8 @@
 A library to work with ISBN written in Elixir.
 
 [![Hex pm](https://img.shields.io/hexpm/v/isbnex.svg?style=flat)](https://www.hex.pm/packages/isbnex)
-[![Elixir CI](https://github.com/renanvy/isbnex/workflows/Elixir%20CI/badge.svg?branch=master)](https://github.com/renanvy/isbnex/actions?query=workflow%3A%22Elixir+CI%22)
+[![Hex pm](https://img.shields.io/hexpm/l/isbnex)](https://github.com/renanvy/isbnex/blob/master/LICENSE)
+[![Elixir CI](https://github.com/renanvy/isbnex/workflows/build/badge.svg?branch=master)](https://github.com/renanvy/isbnex/workflows/build/badge.svg?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/renanvy/isbnex/badge.svg?branch=master)](https://coveralls.io/github/renanvy/isbnex?branch=master)
 
 The International Standard Book Number (ISBN) is a numeric commercial book identifier which is intended to be unique. Publishers purchase ISBNs from an affiliate of the International ISBN Agency.
@@ -66,3 +67,7 @@ nil
 ## Docs
 
 The docs can be found at [https://hexdocs.pm/isbnex](https://hexdocs.pm/isbnex).
+
+## Contribute
+
+Feel free to contribute to this project. If you have any suggestions or bug reports just open an issue or a PR.
