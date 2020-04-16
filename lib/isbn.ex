@@ -16,6 +16,7 @@ defmodule ISBN do
 
   """
   def valid?(isbn) when not is_binary(isbn), do: false
+
   def valid?(isbn) do
     last_digit = isbn |> String.trim() |> String.last()
 
