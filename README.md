@@ -29,7 +29,7 @@ end
 
 ## Quick Start
 
-You can verify if a ISBN is valid by calling the function `ISBN.valid?/1`:
+You can verify if a ISBN is valid by calling the function `ISBN.valid?/1`. Works with both ISBN-10 and ISBN-13. Allows hyphens and spaces in the string.
 
 ```elixir
 iex> ISBN.valid?("9971502100")

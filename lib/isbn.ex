@@ -7,29 +7,34 @@ defmodule ISBN do
   @isbn10_multipliers [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
   @doc """
-  Checks if ISBN is valid.
+  Checks if the given string is a valid ISBN.
+
+  Works with both ISBN-10 and ISBN-13. Allows hyphens and spaces in the string.
 
   ## Examples
 
       iex> ISBN.valid?("9971502100")
       true
 
-  """
-  def valid?(isbn) when not is_binary(isbn), do: false
+      iex> ISBN.valid?("978-03-0640-615-7")
+      true
 
-  def valid?(isbn) do
+  """
+
+  def valid?(isbn) when is_binary(isbn) do
     last_digit = isbn |> String.trim() |> String.last()
 
     digits =
       isbn
-      |> String.replace("-", "")
-      |> String.replace(" ", "")
+      |> remove_spaces_and_dashes()
       |> String.slice(0..-2)
       |> String.codepoints()
       |> Enum.map(&String.to_integer/1)
 
     reveal_verifier(digits) == last_digit
   end
+
+  def valid?(_), do: false
 
   @doc """
   Returns ISBN formatted.
@@ -49,9 +54,7 @@ defmodule ISBN do
     case valid?(isbn) do
       true ->
         isbn
-        |> String.trim()
-        |> String.replace("-", "")
-        |> String.replace(" ", "")
+        |> remove_spaces_and_dashes()
         |> String.codepoints()
         |> do_format()
 
@@ -99,5 +102,12 @@ defmodule ISBN do
     |> Enum.reduce(0, fn {multiplier, digit}, acc ->
       acc + multiplier * digit
     end)
+  end
+
+  defp remove_spaces_and_dashes(isbn) do
+    isbn
+    |> String.trim()
+    |> String.replace("-", "")
+    |> String.replace(" ", "")
   end
 end
