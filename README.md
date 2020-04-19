@@ -22,7 +22,7 @@ by adding `isbnex` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:isbnex, "~> 0.1.1"}
+    {:isbnex, "~> 0.2.0"}
   ]
 end
 ```

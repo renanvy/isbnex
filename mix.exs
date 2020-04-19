@@ -4,7 +4,7 @@ defmodule Isbn.MixProject do
   def project do
     [
       app: :isbnex,
-      version: "0.1.1",
+      version: "0.2.0",
       elixir: "~> 1.6",
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [
