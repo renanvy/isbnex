@@ -1,5 +1,5 @@
 defmodule ISBNTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   doctest ISBN
   alias ISBN
 
@@ -23,7 +23,6 @@ defmodule ISBNTest do
     test "returns falsy when ISBN is invalid" do
       refute ISBN.valid?("99")
       refute ISBN.valid?(9)
-      # refute ISBN.valid?("0943#$4567")
 
       # ISBN10
       refute ISBN.valid?("9971502101")

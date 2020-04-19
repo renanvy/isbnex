@@ -64,6 +64,40 @@ iex> ISBN.format("111111")
 nil
 ```
 
+## Validation with Changeset
+
+You can use `ISBN.Ecto.Changeset.validate_isbn/3` function to validate a field in your changeset. Example:
+
+```elixir
+defmodule MyApp.Libraries.Book do
+  @moduledoc """
+  The Book schema.
+  """
+
+  use Ecto.Schema
+  import Ecto.Changeset
+
+  # Import this module
+  import ISBN.Ecto.Changeset
+
+  schema "books" do
+    field :isbn, :string, null: false
+  end
+
+  @doc false
+  def changeset(book, attrs) do
+    book
+    |> cast(attrs, [:isbn])
+    |> validate_isbn([:isbn])
+  end
+end
+
+iex> changeset = MyApp.Libraries.Book.changeset(%MyApp.Libraries.Book{}, %{isbn: "12345567"})
+iex> {:error, %Ecto.Changeset{}} = Repo.insert(changeset)
+iex> changeset
+#Ecto.Changeset<action: :insert, changes: %{isbn: "1234567890"}, errors: [isbn: {"is invalid", []}], data: #MyApp.Libraries.Book<>, valid?: false>
+```
+
 ## Docs
 
 The docs can be found at [https://hexdocs.pm/isbnex](https://hexdocs.pm/isbnex).
